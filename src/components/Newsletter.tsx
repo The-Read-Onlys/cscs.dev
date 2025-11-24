@@ -56,7 +56,7 @@ export default function Newsletter() {
           onSubmit={handleSubmit}
         >
           <input type="hidden" name="form-name" value="newsletter" />
-          <div className="flex gap-x-4">
+          <div className="flex items-end gap-x-4">
             <Field className="flex-auto">
               <Label htmlFor="email-address" className="sr-only">
                 Email address
