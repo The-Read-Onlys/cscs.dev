@@ -1,0 +1,8 @@
+# Exclude persistent data from build context
+pb_data/
+
+# Exclude common development files
+*.log
+.DS_Store
+.env
+.env.local
