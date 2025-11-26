@@ -82,7 +82,7 @@ up() {
     # Check if Disk already exists to decide between --disk (attach) or --create-disk (new)
     DISK_FLAG=""
     if gcloud compute disks describe $DISK_NAME --zone=$ZONE --project=$PROJECT >/dev/null 2>&1; then
-        echo "cY  Found existing disk '$DISK_NAME'. Attaching..."
+        echo "💾  Found existing disk '$DISK_NAME'. Attaching..."
         # Note: We must specify device-name so the startup script finds /dev/disk/by-id/google-pod-data-disk
         DISK_FLAG="--disk=name=$DISK_NAME,device-name=${DISK_NAME}-disk,auto-delete=no"
     else
