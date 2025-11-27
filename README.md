@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2dcb81d1-35ab-4001-bf99-7deb67c5496a/deploy-status)](https://app.netlify.com/projects/cscsdev/deploys)
+
 # College Station Computer Science (CSCS)
 
 A community website for the local tech community in the Bryan-College Station area. Features a blog, newsletter signup, and event information.
