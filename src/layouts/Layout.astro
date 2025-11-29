@@ -30,6 +30,7 @@ const ogImage = new URL(image, Astro.site);
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonicalURL} />
+		<meta name="robots" content="index, follow" />
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content={type} />
