@@ -11,15 +11,19 @@ We're excited to launch College Station Computer Science (CSCS), a centralized h
 ## What We Offer
 
 ### Book Club
+
 Join us for technical book discussions where we dive deep into software engineering classics, new releases, and impactful technical literature. We meet regularly to discuss chapters, share insights, and learn together.
 
 ### LeetCode Meetups
+
 Practice coding challenges in a collaborative environment. Our LeetCode meetups are perfect for interview preparation, algorithm practice, or simply sharpening your problem-solving skills.
 
 ### Technical Blogs
+
 Read and contribute technical content covering a wide range of topics including web development, systems programming, cloud infrastructure, and more.
 
 ### Community Events
+
 Stay tuned for workshops, tech talks, and networking events throughout the year.
 
 ## Get Involved

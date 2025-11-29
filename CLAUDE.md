@@ -29,6 +29,7 @@ npm run preview  # Preview production build locally
 ### Routing
 
 File-based routing in `src/pages/`:
+
 - `/` - Home page with hero, newsletter, footer
 - `/blog` - Blog listing (sorted by date, newest first)
 - `/blog/[slug]` - Individual posts (dynamic routes from content collection)
@@ -53,23 +54,27 @@ Posts use `getStaticPaths()` for build-time generation. Schema defined in `src/c
 ### Component Organization
 
 **Catalyst UI Kit** (`src/components/catalyst/`)
+
 - 28 pre-built components from Tailwind UI
 - Based on Headless UI + clsx
 - Use these for consistency: Button, Input, Heading, Text, Field, Label, etc.
 
 **Page Components** (`src/components/`)
+
 - `Header.tsx` - Sticky navigation (React, interactive mobile menu)
 - `Hero.tsx` - Landing page hero section
 - `Newsletter.tsx` - Email signup form
 - `Footer.tsx` - Site footer with links
 
 **Shared Layout** (`src/layouts/Layout.astro`)
+
 - Wraps all pages with HTML boilerplate
 - Accepts `title` and `description` props for SEO
 
 ### Styling Conventions
 
 **Tailwind CSS v4** with utilities-first approach:
+
 - Color palette: `zinc` (neutrals) + `indigo` (accent)
 - Dark mode: Use `dark:` prefix (based on `prefers-color-scheme`)
 - Container: `max-w-7xl` for main layout, `max-w-3xl` for content
@@ -77,6 +82,7 @@ Posts use `getStaticPaths()` for build-time generation. Schema defined in `src/c
 - Responsive: `sm:` (640px), `lg:` (1024px)
 
 **Typography**:
+
 - Use Catalyst components: `<Heading>`, `<Text>`, etc.
 - Blog content: Tailwind Typography (`prose` classes with dark mode)
 
@@ -106,6 +112,7 @@ Posts use `getStaticPaths()` for build-time generation. Schema defined in `src/c
 ### Dark Mode
 
 All components must support dark mode:
+
 - Add `dark:` variants to Tailwind classes
 - Test in both light and dark themes
 - Use zinc color palette for neutrals (works in both modes)

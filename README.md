@@ -23,8 +23,8 @@ To get started with development, you'll need Podman and Podman Compose installed
     podman-compose up --build -d
     ```
 
-    *   The frontend application will be accessible at `http://localhost:4321`. It supports hot-reloading: any changes you make to the source code on your host machine will automatically refresh in the browser.
-    *   The backend (PocketBase) will be accessible at `http://localhost:8090`.
+    - The frontend application will be accessible at `http://localhost:4321`. It supports hot-reloading: any changes you make to the source code on your host machine will automatically refresh in the browser.
+    - The backend (PocketBase) will be accessible at `http://localhost:8090`.
 
 2.  **Stop the Development Environment:**
 
@@ -75,10 +75,10 @@ All Catalyst components are in `src/components/catalyst/`:
 Import components from the catalyst directory:
 
 ```tsx
-import { Button } from './catalyst/button'
-import { Input } from './catalyst/input'
-import { Heading, Subheading } from './catalyst/heading'
-import { Text } from './catalyst/text'
+import { Button } from "./catalyst/button";
+import { Input } from "./catalyst/input";
+import { Heading, Subheading } from "./catalyst/heading";
+import { Text } from "./catalyst/text";
 
 export default function MyComponent() {
   return (
@@ -88,7 +88,7 @@ export default function MyComponent() {
       <Input type="email" placeholder="Enter email" />
       <Button color="indigo">Subscribe</Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -97,6 +97,7 @@ export default function MyComponent() {
 Full documentation for all components: **[catalyst.tailwindui.com/docs](https://catalyst.tailwindui.com/docs)**
 
 The documentation includes:
+
 - Component APIs and props
 - Usage examples
 - Accessibility features
@@ -115,10 +116,10 @@ Example customization:
 
 ```tsx
 // Wrap a Catalyst component with custom defaults
-import { Button as CatalystButton } from './catalyst/button'
+import { Button as CatalystButton } from "./catalyst/button";
 
 export function PrimaryButton(props) {
-  return <CatalystButton color="indigo" {...props} />
+  return <CatalystButton color="indigo" {...props} />;
 }
 ```
 
@@ -150,9 +151,9 @@ Create a new `.astro` file in `src/pages/` for new routes:
 
 ```astro
 ---
-import Layout from '../layouts/Layout.astro'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 ---
 
 <Layout title="Page Title">

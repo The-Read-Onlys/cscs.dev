@@ -1,4 +1,4 @@
-import { Button } from './catalyst/button'
+import { Button } from "./catalyst/button";
 
 export default function Hero() {
   return (
@@ -7,7 +7,7 @@ export default function Hero() {
         <div className="relative isolate">
           <svg
             aria-hidden="true"
-            className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-zinc-200 dark:stroke-zinc-800 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
+            className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)] stroke-zinc-200 dark:stroke-zinc-800"
           >
             <defs>
               <pattern
@@ -21,35 +21,45 @@ export default function Hero() {
                 <path d="M.5 200V.5H200" fill="none" />
               </pattern>
             </defs>
-            <svg x="50%" y={-1} className="overflow-visible fill-zinc-50 dark:fill-zinc-900/50">
+            <svg
+              x="50%"
+              y={-1}
+              className="overflow-visible fill-zinc-50 dark:fill-zinc-900/50"
+            >
               <path
                 d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
                 strokeWidth={0}
               />
             </svg>
-            <rect fill="url(#cscs-pattern)" width="100%" height="100%" strokeWidth={0} />
+            <rect
+              fill="url(#cscs-pattern)"
+              width="100%"
+              height="100%"
+              strokeWidth={0}
+            />
           </svg>
           <div
             aria-hidden="true"
-            className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+            className="absolute top-0 right-0 left-1/2 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
           >
             <div
               style={{
                 clipPath:
-                  'polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)',
+                  "polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)",
               }}
               className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 dark:opacity-20"
             />
           </div>
           <div className="overflow-hidden">
-            <div className="mx-auto max-w-7xl px-6 pb-32 pt-24 sm:pt-32 lg:px-8 lg:pt-32">
+            <div className="mx-auto max-w-7xl px-6 pt-24 pb-32 sm:pt-32 lg:px-8 lg:pt-32">
               <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                 <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
-                  <h1 className="text-pretty text-5xl font-semibold tracking-tight text-zinc-900 dark:text-white sm:text-7xl">
+                  <h1 className="text-5xl font-semibold tracking-tight text-pretty text-zinc-900 sm:text-7xl dark:text-white">
                     College Station Computer Science
                   </h1>
-                  <p className="mt-8 text-pretty text-lg font-medium text-zinc-600 dark:text-zinc-400 sm:max-w-md sm:text-xl/8 lg:max-w-none">
-                    A centralized location for the local tech community. Join us for book clubs, Leetcode meetups, technical blogs, and more.
+                  <p className="mt-8 text-lg font-medium text-pretty text-zinc-600 sm:max-w-md sm:text-xl/8 lg:max-w-none dark:text-zinc-400">
+                    A centralized location for the local tech community. Join us
+                    for book clubs, Leetcode meetups, technical blogs, and more.
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
                     <Button href="#" color="indigo">
@@ -66,9 +76,9 @@ export default function Hero() {
                       <img
                         alt=""
                         src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                        className="aspect-[2/3] w-full rounded-xl bg-zinc-900/5 dark:bg-white/5 object-cover shadow-lg"
+                        className="aspect-[2/3] w-full rounded-xl bg-zinc-900/5 object-cover shadow-lg dark:bg-white/5"
                       />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10" />
+                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-zinc-900/10 ring-inset dark:ring-white/10" />
                     </div>
                   </div>
                   <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
@@ -76,17 +86,17 @@ export default function Hero() {
                       <img
                         alt=""
                         src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                        className="aspect-[2/3] w-full rounded-xl bg-zinc-900/5 dark:bg-white/5 object-cover shadow-lg"
+                        className="aspect-[2/3] w-full rounded-xl bg-zinc-900/5 object-cover shadow-lg dark:bg-white/5"
                       />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10" />
+                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-zinc-900/10 ring-inset dark:ring-white/10" />
                     </div>
                     <div className="relative">
                       <img
                         alt=""
                         src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80"
-                        className="aspect-[2/3] w-full rounded-xl bg-zinc-900/5 dark:bg-white/5 object-cover shadow-lg"
+                        className="aspect-[2/3] w-full rounded-xl bg-zinc-900/5 object-cover shadow-lg dark:bg-white/5"
                       />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10" />
+                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-zinc-900/10 ring-inset dark:ring-white/10" />
                     </div>
                   </div>
                   <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
@@ -94,17 +104,17 @@ export default function Hero() {
                       <img
                         alt=""
                         src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
-                        className="aspect-[2/3] w-full rounded-xl bg-zinc-900/5 dark:bg-white/5 object-cover shadow-lg"
+                        className="aspect-[2/3] w-full rounded-xl bg-zinc-900/5 object-cover shadow-lg dark:bg-white/5"
                       />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10" />
+                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-zinc-900/10 ring-inset dark:ring-white/10" />
                     </div>
                     <div className="relative">
                       <img
                         alt=""
                         src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                        className="aspect-[2/3] w-full rounded-xl bg-zinc-900/5 dark:bg-white/5 object-cover shadow-lg"
+                        className="aspect-[2/3] w-full rounded-xl bg-zinc-900/5 object-cover shadow-lg dark:bg-white/5"
                       />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10" />
+                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-zinc-900/10 ring-inset dark:ring-white/10" />
                     </div>
                   </div>
                 </div>
@@ -114,5 +124,5 @@ export default function Hero() {
         </div>
       </main>
     </div>
-  )
+  );
 }

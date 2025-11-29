@@ -3,7 +3,7 @@
 # - Source code is mounted as a volume
 # - Production deployments use Podman pod specifications
 
-version: '3.8'
+version: "3.8"
 
 services:
   pocketbase:
