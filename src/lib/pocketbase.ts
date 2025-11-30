@@ -34,6 +34,7 @@ export interface AuthUser {
   username?: string;
   avatar?: string;
   verified: boolean;
+  role?: string;
   created: string;
   updated: string;
 }
@@ -43,6 +44,7 @@ export interface RegisterData {
   password: string;
   passwordConfirm: string;
   name?: string;
+  role?: string;
 }
 
 export interface LoginData {

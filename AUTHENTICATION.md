@@ -2,6 +2,16 @@
 
 This project uses [PocketBase](https://pocketbase.io/) for user authentication.
 
+## Features
+
+- ✅ User registration with email verification
+- ✅ Login/logout functionality
+- ✅ Role-based access control (user/moderator)
+- ✅ Protected routes and account dashboard
+- ✅ Client-side authentication (static site)
+- ✅ Email verification (production only, requires SMTP)
+- ✅ Custom verification page with user-friendly UI
+
 ## Setup
 
 ### 1. PocketBase URLs
@@ -159,7 +169,61 @@ For production deployment:
 
 3. **Build**: Run `npm run build` to create the production build with the correct PocketBase URL baked in
 
+## Email Verification
+
+### Setup (Production)
+
+Email verification requires SMTP configuration:
+
+1. Login to Admin Dashboard: https://api.cscs.dev/_/
+2. Navigate to **Settings → Mail settings**
+3. Configure SMTP (SendGrid):
+   - **SMTP host**: smtp.sendgrid.net
+   - **Port**: 587
+   - **Username**: apikey
+   - **Password**: [SendGrid API key]
+   - **From address**: noreply@cscs.dev
+   - **From name**: CSCS
+4. Set **App URL**: https://api.cscs.dev (under Settings → Application)
+   - **Important**: This must be the PocketBase API URL, not your frontend URL
+   - The verification link will be: `https://api.cscs.dev/api/collections/users/confirm-verification?token=...`
+
+### Verification Flow
+
+1. User registers at `/register`
+2. `requestVerification(email)` is called
+3. PocketBase sends verification email using its built-in template
+4. Email contains link to: `https://api.cscs.dev/api/collections/users/confirm-verification?token=ABC123`
+5. User clicks link → PocketBase verifies token and returns JSON response
+6. User can then log in with verified email
+
+**Limitation**: PocketBase's pre-built binary uses hardcoded email templates that link directly to the API endpoint (`/api/collections/users/confirm-verification?token=...`). Users will see a JSON response after clicking the verification link.
+
+**Workaround**: A custom verification page exists at `/verify-email?token=...` that provides a user-friendly UI, but users would need to manually navigate there with the token from the email. To use custom email templates with proper redirects, you would need to extend PocketBase with Go hooks or use a custom build.
+
+### Development
+
+Email verification is configured in development with SendGrid SMTP. To test:
+
+1. Set **App URL** in Admin Dashboard: http://localhost:8080 (or http://localhost:4321)
+2. Register with a real email address
+3. Check your email for the verification link
+4. Click the link to verify
+
+Alternatively, you can manually verify users via Admin Dashboard (Collections → users → Edit user → check "verified")
+
 ## Troubleshooting
+
+### SendGrid Link Tracking
+
+SendGrid wraps all email links with click tracking URLs (e.g., `url8394.cscs.dev`). This is normal behavior and the link will redirect to the actual verification URL after tracking.
+
+To disable link tracking (optional):
+1. Login to SendGrid dashboard
+2. Go to Settings → Tracking
+3. Disable "Click Tracking"
+
+**Note**: Even with tracking enabled, verification should work - SendGrid redirects to the actual URL after tracking the click.
 
 ### CORS Issues
 

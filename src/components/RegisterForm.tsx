@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { register, login } from '../lib/pocketbase';
+import { register, login, requestVerification } from '../lib/pocketbase';
 import { Button } from './catalyst/button';
 import { Field, Label } from './catalyst/fieldset';
 import { Input } from './catalyst/input';
@@ -40,6 +40,15 @@ export default function RegisterForm() {
         name: name || undefined,
         role: 'user',
       });
+
+      // Send verification email (requires SMTP configured in PocketBase)
+      // Email will contain a link to PocketBase's API endpoint for verification
+      try {
+        await requestVerification(email);
+      } catch (verifyErr) {
+        // Silently fail if SMTP is not configured
+        console.warn('Could not send verification email:', verifyErr);
+      }
 
       // Automatically log them in after registration
       await login({ email, password });
