@@ -38,7 +38,21 @@ This guide explains how to set up Role-Based Access Control for the CSCS.dev sit
 6. A migration file will be auto-generated in `backend/pb_migrations/`
 7. Commit the migration file
 
-### Step 2: Set API Rules for events collection
+### Step 2: Set API Rules for users collection
+
+In Admin Dashboard → Collections → users → API Rules:
+
+```javascript
+// Create rule - Allow registration but enforce role='user'
+@request.body.email:isset = true &&
+@request.body.password:isset = true &&
+(@request.body.role:isset = false || @request.body.role = "user")
+
+// Update rule - Users can update their own record but never change role
+id = @request.auth.id && (@request.body.role:isset = false || @request.body.role = role)
+```
+
+### Step 3: Set API Rules for events collection
 
 In Admin Dashboard → Collections → events → API Rules:
 
@@ -59,7 +73,7 @@ In Admin Dashboard → Collections → events → API Rules:
 @request.auth.id != "" && @request.auth.role = "moderator"
 ```
 
-### Step 3: Set API Rules for rsvps collection (when created)
+### Step 4: Set API Rules for rsvps collection (when created)
 
 In Admin Dashboard → Collections → rsvps → API Rules:
 
