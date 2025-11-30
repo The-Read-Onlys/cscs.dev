@@ -16,16 +16,17 @@ const description = 'View and RSVP to upcoming events';
             View upcoming events and manage your RSVPs
           </p>
         </div>
-        <button
+        <a
           id="create-event-btn"
+          href="/app/create-event"
           style="display: none;"
-          class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-500"
+          class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-500 cursor-pointer"
         >
           <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
           </svg>
           Create Event
-        </button>
+        </a>
       </div>
 
       <div id="events-container">
@@ -116,27 +117,26 @@ const description = 'View and RSVP to upcoming events';
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <div class="flex items-center justify-end gap-2">
+                  <button
+                    onclick="alert('RSVP functionality coming soon!')"
+                    class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10 hover:bg-indigo-100 dark:bg-indigo-400/10 dark:text-indigo-400 dark:ring-indigo-400/30 dark:hover:bg-indigo-400/20 cursor-pointer"
+                  >
+                    RSVP
+                  </button>
                   ${isModerator ? `
-                    <button
-                      onclick="editEvent('${event.id}')"
-                      class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300"
+                    <a
+                      href="/app/create-event?edit=${event.id}"
+                      class="inline-flex items-center rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-700 ring-1 ring-inset ring-zinc-700/10 hover:bg-zinc-100 dark:bg-zinc-400/10 dark:text-zinc-400 dark:ring-zinc-400/30 dark:hover:bg-zinc-400/20 cursor-pointer"
                     >
                       Edit
-                    </button>
+                    </a>
                     <button
                       onclick="deleteEvent('${event.id}')"
-                      class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300"
+                      class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-700/10 hover:bg-red-100 dark:bg-red-400/10 dark:text-red-400 dark:ring-red-400/30 dark:hover:bg-red-400/20 cursor-pointer"
                     >
                       Delete
                     </button>
-                  ` : `
-                    <button
-                      onclick="alert('RSVP functionality coming soon!')"
-                      class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300"
-                    >
-                      RSVP
-                    </button>
-                  `}
+                  ` : ''}
                 </div>
               </td>
             </tr>
@@ -182,11 +182,7 @@ const description = 'View and RSVP to upcoming events';
       }
     }
 
-    // Make edit and delete functions global for onclick handlers
-    (window as any).editEvent = function(eventId: string) {
-      window.location.href = `/app/create-event?edit=${eventId}`;
-    };
-
+    // Make delete function global for onclick handler
     (window as any).deleteEvent = async function(eventId: string) {
       if (!confirm('Are you sure you want to delete this event?')) {
         return;
@@ -210,9 +206,6 @@ const description = 'View and RSVP to upcoming events';
         // Show Create Event button for moderators
         if (isModerator) {
           createBtn.style.display = 'inline-flex';
-          createBtn.addEventListener('click', () => {
-            window.location.href = '/app/create-event';
-          });
         }
 
         loadEvents();

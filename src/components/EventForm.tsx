@@ -41,6 +41,7 @@ export default function EventForm({ eventId, onSuccess, onCancel }: EventFormPro
   const [isLoadingEvent, setIsLoadingEvent] = useState(!!eventId);
 
   useEffect(() => {
+    console.log('EventForm mounted with eventId:', eventId, 'type:', typeof eventId);
     if (eventId) {
       loadEvent();
     }
@@ -84,7 +85,7 @@ export default function EventForm({ eventId, onSuccess, onCancel }: EventFormPro
       if (onSuccess) {
         onSuccess();
       } else {
-        window.location.href = '/app/manage-events';
+        window.location.href = '/app/events';
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to save event');
